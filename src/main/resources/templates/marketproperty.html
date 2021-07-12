@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>群体画像 | 消费特征</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+
+  <!-- 页头 -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+
+
+
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- 侧边栏 -->
+  <aside class="main-sidebar sidebar-dark-lightblue elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">用户画像</span>
+    </a>
+
+    <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 侧边栏内容 -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <!--群体画像-->
+          <li class="nav-header"> </li>
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                群体画像
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="home" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>人口属性</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="marketproperty" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>消费特征</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="behaviorproperty" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>咨询管理</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!--组合标签-->
+          <li class="nav-item">
+            <a href="combine" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>组合标签</p>
+            </a>
+          </li>
+          <!--用户画像-->
+          <li class="nav-item">
+            <a href="userprofile" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>用户画像</p>
+            </a>
+          </li>
+          <!--标签查询-->
+          <li class="nav-item">
+            <a href="search" class="nav-link">
+              <i class="nav-icon fas fa-search"></i>
+              <p>标签查询 </p>
+            </a>
+          </li>
+          <li class="nav-header"> </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- 页面标题 -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">群体画像 | 消费特征</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Market</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+ <!-- 主页内容 -->
+  <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <!-- 消费周期 -->
+            <div class="card card-lightblue card-outline">
+              <div class="card-header">
+                <h3 class="card-title">消费周期</h3>
+
+
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="cycleChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- 消费能力 -->
+            <div class="card card-lightblue card-outline">
+              <div class="card-header">
+                <h3 class="card-title">消费能力</h3>
+
+
+              </div>
+              <div class="card-body">
+                <canvas id="abilityChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- 客单价 -->
+            <div class="card card-lightblue card-outline">
+              <div class="card-header">
+                <h3 class="card-title">客单价</h3>
+
+
+              </div>
+              <div class="card-body">
+                <canvas id="priceChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- 价格敏感度 -->
+            <div class="card card-lightblue card-outline">
+              <div class="card-header">
+                <h3 class="card-title">价格敏感度</h3>
+
+
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="PriceSensitivityChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+         </div>
+
+         <div class="col-md-4">
+            <!-- 支付方式 -->
+            <div class="card card-lightblue card-outline">
+              <div class="card-header">
+                <h3 class="card-title">使用次数最多的支付方式</h3>
+
+
+              </div>
+              <div class="card-body">
+                <canvas id="paymentChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- 单笔最高 -->
+            <div class="card card-lightblue card-outline">
+              <div class="card-header">
+                <h3 class="card-title">单笔最高</h3>
+
+
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="maxChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- 购买频率 -->
+            <div class="card card-lightblue card-outline">
+              <div class="card-header">
+                <h3 class="card-title">购买频率</h3>
+
+
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="frequencyChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+           <!-- RFM分类 -->
+           <div class="card card-lightblue card-outline">
+             <div class="card-header">
+               <h3 class="card-title">RFM分类</h3>
+
+
+             </div>
+             <div class="card-body">
+               <div class="chart">
+                 <canvas id="RFMChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+               </div>
+             </div>
+             <!-- /.card-body -->
+           </div>
+           <!-- /.card -->
+
+          </div>
+          <!-- /.col (LEFT) -->
+          <div class="col-md-4">
+
+
+            <!-- 退货率 -->
+            <div class="card card-lightblue card-outline">
+              <div class="card-header">
+                <h3 class="card-title">退货率</h3>
+
+
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="returnChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- 换货率 -->
+            <div class="card card-lightblue card-outline">
+              <div class="card-header">
+                <h3 class="card-title">换货率</h3>
+
+
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="replacementChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- 客服咨询频率 -->
+            <div class="card card-lightblue card-outline">
+              <div class="card-header">
+                <h3 class="card-title">客服咨询频率</h3>
+
+
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="advisoryChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- 省钱能手 -->
+            <div class="card card-lightblue card-outline">
+              <div class="card-header">
+                <h3 class="card-title">省钱能手</h3>
+
+
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="discountChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- 有券必买 -->
+            <div class="card card-lightblue card-outline">
+              <div class="card-header">
+                <h3 class="card-title">有券必买</h3>
+
+
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="CouponChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+
+
+
+
+
+          </div>
+          <!-- /.col (RIGHT) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+
+  </div>
+  <!-- 页尾 copyright -->
+  <footer class="main-footer">
+    <strong>J-TEAM22-UserProfile   </a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.1.0
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Add Content Here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+
+
+<!-- Page specific script -->
+ <!-- 数据 -->
+<script>
+  function getData(url) {
+    var data = "";
+    $.ajax({
+      type: "POST",//POST方式提交
+      dataType: "json",//返回json类型
+      url: url,//请求url
+      async:false,//同步
+      success: function (result) {
+        data =  result;
+      },
+    });
+
+    return data;
+  }
+
+  $(function () {
+    /* ChartJS
+     * -------
+     * Here we will create a few charts using ChartJS
+     */
+
+    //--------------
+    //- AREA CHART -
+    //--------------
+
+    // Get context with jQuery - using jQuery's .get() method.
+    var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
+
+    var areaChartData = {
+      labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [
+        {
+          label               : 'Digital Goods',
+          backgroundColor     : 'rgba(60,141,188,0.9)',
+          borderColor         : 'rgba(60,141,188,0.8)',
+          pointRadius          : false,
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data                : [28, 48, 40, 19, 86, 27, 90]
+        },
+        {
+          label               : 'Electronics',
+          backgroundColor     : 'rgba(210, 214, 222, 1)',
+          borderColor         : 'rgba(210, 214, 222, 1)',
+          pointRadius         : false,
+          pointColor          : 'rgba(210, 214, 222, 1)',
+          pointStrokeColor    : '#c1c7d1',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(220,220,220,1)',
+          data                : [65, 59, 80, 81, 56, 55, 40]
+        },
+      ]
+    }
+
+
+
+    // This will get the first returned node in the jQuery collection.
+    new Chart(areaChartCanvas, {
+      type: 'line',
+      data: areaChartData,
+      options: areaChartOptions
+    })
+
+    //-------------
+    //- LINE CHART -
+    //--------------
+    var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
+    var lineChartOptions = $.extend(true, {}, areaChartOptions)
+    var lineChartData = $.extend(true, {}, areaChartData)
+    lineChartData.datasets[0].fill = false;
+    lineChartData.datasets[1].fill = false;
+    lineChartOptions.datasetFill = false
+
+    var lineChart = new Chart(lineChartCanvas, {
+      type: 'line',
+      data: lineChartData,
+      options: lineChartOptions
+    })
+
+    //-------------
+    //- DONUT CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+    var donutData        = {
+      labels: [
+          '男',
+          '女',
+      ],
+      datasets: [
+        {
+          data: [250,700],
+          backgroundColor : [ '#f39c12', '#00c0ef'],
+        }
+      ]
+    }
+    var donutOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    new Chart(donutChartCanvas, {
+      type: 'doughnut',
+      data: donutData,
+      options: donutOptions
+    })
+
+    //-------------
+    //- PIE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var pieChartCanvas = document.getElementById('pieChart').getContext('2d');
+    var chart = new Chart(pieChartCanvas, {
+      type: "pie",
+      data: {
+      labels: ['男','女'],
+      datasets: [
+        {
+          data: [250,700],
+          backgroundColor : [ '#f39c12', '#00c0ef'],
+        }]
+      },
+      options: {}
+    })
+
+    //-------------
+    //- BAR CHART -
+    //-------------
+    var barChartCanvas = $('#barChart').get(0).getContext('2d')
+    var barChartData = $.extend(true, {}, areaChartData)
+    var temp0 = areaChartData.datasets[0]
+    var temp1 = areaChartData.datasets[1]
+    barChartData.datasets[0] = temp1
+    barChartData.datasets[1] = temp0
+
+    var barChartOptions = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      datasetFill             : false
+    }
+
+    new Chart(barChartCanvas, {
+      type: 'bar',
+      data: barChartData,
+      options: barChartOptions
+    })
+
+    //---------------------
+    //- STACKED BAR CHART -
+    //---------------------
+    var stackedBarChartCanvas = document.getElementById('stackedBarChart').getContext('2d')
+    var stackedBarChartData = $.extend(true, {}, barChartData)
+
+    var stackedBarChartOptions = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      scales: {
+        xAxes: [{
+          stacked: true,
+        }],
+        yAxes: [{
+          stacked: true
+        }]
+      }
+    }
+
+    new Chart(stackedBarChartCanvas, {
+      type: 'bar',
+      data: stackedBarChartData,
+      options: {}
+    })
+  })
+
+  var areaChartOptions = {
+    maintainAspectRatio : false,
+    responsive : true,
+    legend: {
+      display: false
+    },
+    scales: {
+      xAxes: [{
+        gridLines : {
+          display : false,
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,  //最小值
+        },
+        gridLines : {
+          display : false,
+        }
+      }]
+    }
+  }
+  var donutOptions     = {
+    maintainAspectRatio : false,
+    responsive : true,
+  }
+
+//消费周期
+  var cycle = document.getElementById('cycleChart').getContext('2d')
+  var chart = new Chart(cycle, {
+    // 要创建的图表类型
+    type: 'line',
+
+    // 数据集
+   data: {
+   labels: ['7日','2周','1月','2月','3月','4月','5月','6月'],
+   datasets: [
+     {
+       data: getData("/marketProperty/getConsumptionCycle"),
+       borderColor :  '#00c0ef',
+     }]
+   },
+
+    // 配置选项
+    options: areaChartOptions
+  })
+
+  //消费能力
+  var ability = document.getElementById('abilityChart').getContext('2d')
+  var chart = new Chart(ability, {
+    // 要创建的图表类型
+    type: 'bar',
+
+    // 数据集
+   data: {
+   labels: ['超高','高','中上','中','中下','低','很低'],
+   datasets: [
+     {
+       label:"消费能力",
+       data: getData("/marketProperty/getComsumptionAbility"),
+       fillColor:'#62a8ea',
+     }]
+   },
+
+    // 配置选项
+    options: areaChartOptions
+  })
+
+  //客单价
+  var price = document.getElementById('priceChart').getContext('2d')
+  var chart = new Chart(price, {
+    // 要创建的图表类型
+    type: 'horizontalBar',
+
+    // 数据集
+    data: {
+      labels: ['1-999','1000-2999','3000-4999','>5000'],
+      datasets: [
+        {
+          label:"客单价",
+          data: getData("/marketProperty/getPerCustomerTransation"),
+          fillColor:'#62a8ea',
+        }]
+    },
+
+    // 配置选项
+    options: areaChartOptions
+  })
+
+  //支付方式
+  var payment_chart = document.getElementById('paymentChart').getContext('2d')
+  var chart = new Chart(payment_chart, {
+    // 要创建的图表类型
+    type: 'doughnut',
+
+    // 数据集
+    data: {
+      labels: ['支付宝','微信','储蓄卡','信用卡'],
+      datasets: [
+        {
+          data: getData("/marketProperty/getPaymentCode"),
+          backgroundColor : [ '#00c0ef', '#0073b7','#3b8bba','#558b69'],
+        }]
+    },
+
+    // 配置选项
+    options: donutOptions
+  })
+
+  //单笔最高
+  var price = document.getElementById('maxChart').getContext('2d')
+  var chart = new Chart(price, {
+    // 要创建的图表类型
+    type: 'horizontalBar',
+
+    // 数据集
+    data: {
+      labels: ['1-9999','10000-29999','30000-49999','>50000'],
+      datasets: [
+        {
+          label:"单笔最高",
+          data: getData("/marketProperty/getMaxSingleComsumption"),
+          fillColor:'#62a8ea',
+        }]
+    },
+
+    // 配置选项
+    options: areaChartOptions
+  })
+
+  //购买频率
+  var frequency = document.getElementById('frequencyChart').getContext('2d')
+  var chart = new Chart(frequency, {
+    // 要创建的图表类型
+    type: 'doughnut',
+
+    // 数据集
+    data: {
+      labels: ['高','中','低'],
+      datasets: [
+        {
+          data: getData("/marketProperty/getPurchaseFrequency"),
+          backgroundColor : [ '#00c0ef', '#0073b7','#3b8bba'],
+        }]
+    },
+
+    // 配置选项
+    options: donutOptions
+  })
+
+  //退货率
+  var return_chart = document.getElementById('returnChart').getContext('2d')
+  var chart = new Chart(return_chart, {
+    // 要创建的图表类型
+    type: 'pie',
+
+    // 数据集
+    data: {
+      labels: ['高','中','低'],
+      datasets: [
+        {
+          data: getData("/marketProperty/getReturnRate"),
+          backgroundColor : [ '#00c0ef', '#0073b7','#3b8bba'],
+        }]
+    },
+
+    // 配置选项
+    options: donutOptions
+  })
+
+  //换货率
+  var replacement = document.getElementById('replacementChart').getContext('2d')
+  var chart = new Chart(replacement, {
+    // 要创建的图表类型
+    type: 'pie',
+
+    // 数据集
+    data: {
+      labels: ['高','中','低'],
+      datasets: [
+        {
+          data: getData("/marketProperty/getReplacementRate"),
+          backgroundColor : [ '#00c0ef', '#0073b7','#3b8bba'],
+        }]
+    },
+
+
+    // 配置选项
+    options: donutOptions
+  })
+
+  //客服咨询频率
+  var advisory = document.getElementById('advisoryChart').getContext('2d')
+  var chart = new Chart(advisory, {
+    // 要创建的图表类型
+    type: 'pie',
+
+    // 数据集
+    data: {
+      labels: ['高','中','低'],
+      datasets: [
+        {
+          data: getData("/marketProperty/getAdvisoryServiceFrequency"),
+          backgroundColor : [ '#00c0ef', '#0073b7','#3b8bba'],
+        }]
+    },
+
+    // 配置选项
+    options: donutOptions
+  })
+
+  //省钱能手
+  var ability = document.getElementById('discountChart').getContext('2d')
+  var chart = new Chart(ability, {
+    // 要创建的图表类型
+    type: 'bar',
+
+    // 数据集
+    data: {
+      labels: ['8折-9折','5折-7折','3折-4折','未知'],
+      datasets: [
+        {
+          label:"省钱能手",
+          data: getData("/marketProperty/getdiscount"),
+          fillColor:'#62a8ea',
+        }]
+    },
+
+    // 配置选项
+    options: areaChartOptions
+  })
+
+  // 有券必买
+  var advisory = document.getElementById('CouponChart').getContext('2d')
+  var chart = new Chart(advisory, {
+    // 要创建的图表类型
+    type: 'pie',
+
+    // 数据集
+    data: {
+      labels: ['有券必买','null'],
+      datasets: [
+        {
+          data: getData("/marketProperty/getCoupon"),
+          backgroundColor : [ '#00c0ef', '#0073b7'],
+        }]
+    },
+
+    // 配置选项
+    options: donutOptions
+  })
+
+  //RFM分类
+  var ability = document.getElementById('RFMChart').getContext('2d')
+  var chart = new Chart(ability, {
+    // 要创建的图表类型
+    type: 'horizontalBar',
+
+    // 数据集
+    data: {
+      labels: ['中频率高消费','中频率较高消费','低频率中消费','高频率高消费低频率高消费','低频率低消费','较低频率较高消费','未知'],
+      datasets: [
+        {
+          label:"RFM分类",
+          data: getData("/marketProperty/getRFM"),
+          fillColor:'#62a8ea',
+        }]
+    },
+
+    // 配置选项
+    options: areaChartOptions
+  })
+
+  //价格敏感度
+  var ability = document.getElementById('PriceSensitivityChart').getContext('2d')
+  var chart = new Chart(ability, {
+    // 要创建的图表类型
+    type: 'bar',
+
+    // 数据集
+    data: {
+      labels: ['极度敏感','比较敏感','一般敏感','不太敏感','极度不敏感','未知'],
+      datasets: [
+        {
+          label:"价格敏感度",
+          data: getData("/marketProperty/getPriceSensitivity"),
+          fillColor:'#62a8ea',
+        }]
+    },
+
+    // 配置选项
+    options: areaChartOptions
+  })
+</script>
+</body>
+</html>

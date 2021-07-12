@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>组合标签</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Bootstrap Color Picker -->
+    <link rel="stylesheet" href="../../plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Bootstrap4 Duallistbox -->
+    <link rel="stylesheet" href="../../plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="../../plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- dropzonejs -->
+    <link rel="stylesheet" href="../../plugins/dropzone/min/dropzone.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+    <!-- 页头 -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+
+        </ul>
+
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <!-- Navbar Search -->
+
+            <!-- Notifications Dropdown Menu -->
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-bell"></i>
+                    <span class="badge badge-warning navbar-badge">15</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <span class="dropdown-item dropdown-header">15 Notifications</span>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-envelope mr-2"></i> 4 new messages
+                        <span class="float-right text-muted text-sm">3 mins</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-users mr-2"></i> 8 friend requests
+                        <span class="float-right text-muted text-sm">12 hours</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-file mr-2"></i> 3 new reports
+                        <span class="float-right text-muted text-sm">2 days</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+    <!-- /.navbar -->
+    <!-- 侧边栏 -->
+    <aside class="main-sidebar sidebar-dark-lightblue elevation-4">
+        <!-- Brand Logo -->
+        <a href="index3.html" class="brand-link">
+            <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <span class="brand-text font-weight-light">用户画像</span>
+        </a>
+
+        <!-- SidebarSearch Form -->
+        <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+                        <i class="fas fa-search fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 侧边栏内容 -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                     with font-awesome or any other icon font library -->
+                <!--群体画像-->
+                <li class="nav-header"> </li>
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p>
+                            群体画像
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="home" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>人口属性</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="marketproperty" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>消费特征</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="behaviorproperty" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>咨询管理</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--组合标签-->
+                <li class="nav-item">
+                    <a href="combine" class="nav-link active">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>组合标签</p>
+                    </a>
+                </li>
+                <!--用户画像-->
+                <li class="nav-item">
+                    <a href="userprofile" class="nav-link ">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>用户画像</p>
+                    </a>
+                </li>
+                <!--标签查询-->
+                <li class="nav-item">
+                    <a href="search" class="nav-link">
+                        <i class="nav-icon fas fa-search"></i>
+                        <p>标签查询 </p>
+                    </a>
+                </li>
+                <li class="nav-header"> </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">组合标签</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">CombineLabel</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+
+        <form>
+            <div class="form-group">
+        <section class="content">
+            <div class="container-fluid">
+                <!-- SELECT2 EXAMPLE -->
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title">人口属性</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <!--                  <button type="button" class="btn btn-tool" data-card-widget="remove">-->
+                            <!--                    <i class="fas fa-times"></i>-->
+                            <!--                  </button>-->
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>性别</label>
+                                    <select id="select0" class="select2" multiple="性别" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="gender">男</option>
+                                        <option value="gender">女</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <label>政治面貌</label>
+                                    <select id="select1" class="select2" multiple="政治面貌" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="politicalFace">群众</option>
+                                        <option value="politicalFace">党员</option>
+                                        <option value="politicalFace">无党派人士</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>籍贯</label>
+                                    <select id="select2" class="select2" multiple="职业" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="jiguan">北京市</option>
+                                        <option value="jiguan">宁夏中卫</option>
+                                        <option value="jiguan">安徽合肥</option>
+                                        <option value="jiguan">江西抚州</option>
+                                        <option value="jiguan">重庆市</option>
+                                        <option value="jiguan">江苏苏州</option>
+                                        <option value="jiguan">江西南昌</option>
+                                        <option value="jiguan">河北保定</option>
+                                        <option value="jiguan">山东青岛</option>
+                                        <option value="jiguan">山东济南</option>
+                                        <option value="jiguan">甘肃兰州</option>
+                                        <option value="jiguan">甘肃白银</option>
+                                        <option value="jiguan">福建福州</option>
+                                        <option value="jiguan">福建三明</option>
+                                        <option value="jiguan">福建莆田</option>
+                                        <option value="jiguan">广东汕头</option>
+                                        <option value="jiguan">广东韶关</option>
+                                        <option value="jiguan">黑龙江黑河</option>
+                                        <option value="jiguan">黑龙江大兴安岭</option>
+                                        <option value="jiguan">黑龙江齐齐哈尔</option>
+                                        <option value="jiguan">黑龙江绥化</option>
+                                        <option value="jiguan">内蒙古鄂尔多斯</option>
+                                        <option value="jiguan">内蒙古呼和浩特</option>
+                                        <option value="jiguan">未知</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>婚姻状况</label>
+                                    <select id="select3" class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="marriage">未婚</option>
+                                        <option value="marriage">已婚</option>
+                                        <option value="marriage">离异</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <label>年龄段</label>
+                                    <select id="select4" class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="ageRange">50后</option>
+                                        <option value="ageRange">60后</option>
+                                        <option value="ageRange">70后</option>
+                                        <option value="ageRange">80后</option>
+                                        <option value="ageRange">90后</option>
+                                        <option value="ageRange">00后</option>
+                                        <option value="ageRange">10后</option>
+                                        <option value="ageRange">20后</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <label>国籍</label>
+                                    <select id="select5" class="select2" multiple="星座" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="nationality">中国大陆</option>
+                                        <option value="nationality">中国香港</option>
+                                        <option value="nationality">中国澳门</option>
+                                        <option value="nationality">中国台湾</option>
+                                        <option value="nationality">其他</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>职业</label>
+                                    <select id="select6" class="select2" multiple="职业" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="job">学生</option>
+                                        <option value="job">公务员</option>
+                                        <option value="job">军人</option>
+                                        <option value="job">警察</option>
+                                        <option value="job">教师</option>
+                                        <option value="job">白领</option>
+                                        <option value="job">其他</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <label>星座</label>
+                                    <select id="select7" class="select2" multiple="星座" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="constellation">白羊座</option>
+                                        <option value="constellation">金牛座</option>
+                                        <option value="constellation">双子座</option>
+                                        <option value="constellation">巨蟹座</option>
+                                        <option value="constellation">狮子座</option>
+                                        <option value="constellation">处女座</option>
+                                        <option value="constellation">天枰座</option>
+                                        <option value="constellation">天蝎座</option>
+                                        <option value="constellation">人马座</option>
+                                        <option value="constellation">摩羯座</option>
+                                        <option value="constellation">水瓶座</option>
+                                        <option value="constellation">双鱼座</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+            </div>
+        <!-- /.container-fluid -->
+            <div class="form-group">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title">消费特征</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <!--                          <button type="button" class="btn btn-tool" data-card-widget="remove">-->
+                            <!--                            <i class="fas fa-times"></i>-->
+                            <!--                          </button>-->
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>消费周期</label>
+                                    <select id="select8" class="select2" multiple="消费周期" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="consumptionCycle">7日</option>
+                                        <option value="consumptionCycle">2周</option>
+                                        <option value="consumptionCycle">1月</option>
+                                        <option value="consumptionCycle">2月</option>
+                                        <option value="consumptionCycle">3月</option>
+                                        <option value="consumptionCycle">4月</option>
+                                        <option value="consumptionCycle">5月</option>
+                                        <option value="consumptionCycle">6月</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <label>使用次数最多的支付方式</label>
+                                    <select id="select9" class="select2" multiple="使用次数最多的支付方式" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="paymentCode">支付宝</option>
+                                        <option value="paymentCode">微信</option>
+                                        <option value="paymentCode">储蓄卡</option>
+                                        <option value="paymentCode">信用卡</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>退货率</label>
+                                    <select id="select10"class="select2" multiple="退货率" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="returnRate">高</option>
+                                        <option value="returnRate">中</option>
+                                        <option value="returnRate">低</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>价格敏感度</label>
+                                    <select id="select11" class="select2" multiple="价格敏感度" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="PriceSensitivity">极度敏感</option>
+                                        <option value="PriceSensitivity">比较敏感</option>
+                                        <option value="PriceSensitivity">一般敏感</option>
+                                        <option value="PriceSensitivity">不太敏感</option>
+                                        <option value="PriceSensitivity">极度不敏感</option>
+                                        <option value="PriceSensitivity">未知</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>有券必买</label>
+                                    <select id="select12" class="select2" multiple="有券必买" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="Coupon">有券必买</option>
+                                        <option value="Coupon">null</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>消费能力</label>
+                                    <select id="select13" class="select2" multiple="消费能力" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="ComsumptionAbility">超高</option>
+                                        <option value="ComsumptionAbility">高</option>
+                                        <option value="ComsumptionAbility">中上</option>
+                                        <option value="ComsumptionAbility">中</option>
+                                        <option value="ComsumptionAbility">中下</option>
+                                        <option value="ComsumptionAbility">低</option>
+                                        <option value="ComsumptionAbility">很低</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <label>单笔最高</label>
+                                    <select id="select14" class="select2" multiple="单笔最高" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="MaxSingleComsumption">1-9999</option>
+                                        <option value="MaxSingleComsumption">10000-29999</option>
+                                        <option value="MaxSingleComsumption">30000-49999</option>
+                                        <option value="MaxSingleComsumption">>50000</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <label>购买频率</label>
+                                    <select id="select15" class="select2" multiple="购买频率" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="purchaseFrequency">高</option>
+                                        <option value="purchaseFrequency">中</option>
+                                        <option value="purchaseFrequency">低</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>RFM分类</label>
+                                    <select id="select16" class="select2" multiple="RFM分类" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="userValue">中频率高消费</option>
+                                        <option value="userValue">中频率较高消费</option>
+                                        <option value="userValue">低频率中消费</option>
+                                        <option value="userValue">低频率高消费</option>
+                                        <option value="userValue">低频率低消费</option>
+                                        <option value="userValue">较低频率较高消费</option>
+                                        <option value="userValue">未知</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>换货率</label>
+                                    <select id="select17" class="select2" multiple="换货率" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="replacementRate">高</option>
+                                        <option value="replacementRate">中</option>
+                                        <option value="replacementRate">低</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <label>客单价</label>
+                                    <select id="select18" class="select2" multiple="客单价" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="PerCustomerTransation">1-999</option>
+                                        <option value="PerCustomerTransation">1000-2999</option>
+                                        <option value="PerCustomerTransation">3000-4999</option>
+                                        <option value="PerCustomerTransation">>5000</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>客服咨询频率</label>
+                                    <select id="select19" class="select2" multiple="客服咨询频率" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="AdvisoryServiceFrequency">高</option>
+                                        <option value="AdvisoryServiceFrequency">中</option>
+                                        <option value="AdvisoryServiceFrequency">低</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>省钱能手</label>
+                                    <select id="select20" class="select2" multiple="省钱能手" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="discount">8折-9折</option>
+                                        <option value="discount">5折-7折</option>
+                                        <option value="discount">3折-4折</option>
+                                        <option value="discount">未知</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                </div>
+            </div>
+        </section>
+            </div>
+            <div class="form-group">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title">咨询管理</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <!--                              <button type="button" class="btn btn-tool" data-card-widget="remove">-->
+                            <!--                                <i class="fas fa-times"></i>-->
+                            <!--                              </button>-->
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>最近登录</label>
+                                    <select id="select21" class="select2" multiple="最近登录" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="LatestLogin">1天内</option>
+                                        <option value="LatestLogin">7天内</option>
+                                        <option value="LatestLogin">14天内</option>
+                                        <option value="LatestLogin">30天内</option>
+                                        <option value="LatestLogin">超过30天未登录</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <label>访问频率</label>
+                                    <select id="select22" class="select2" multiple="访问频率" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="ViewFrequency">无</option>
+                                        <option value="ViewFrequency">较少</option>
+                                        <option value="ViewFrequency">一般</option>
+                                        <option value="ViewFrequency">经常</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>浏览时长</label>
+                                    <select id="select23" class="select2" multiple="浏览时长" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="WatchTime">1分钟以内</option>
+                                        <option value="WatchTime">1-5分钟</option>
+                                        <option value="WatchTime">5分钟以上</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>登录频率</label>
+                                    <select id="select24" class="select2" multiple="登录频率" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="LoginFrequency">无</option>
+                                        <option value="LoginFrequency">较少</option>
+                                        <option value="LoginFrequency">一般</option>
+                                        <option value="LoginFrequency">经常</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <label>浏览页面</label>
+                                    <select id="select25" class="select2" multiple="浏览页面" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="browser_loc_url">登录页</option>
+                                        <option value="browser_loc_url">首页</option>
+                                        <option value="browser_loc_url">分类页</option>
+                                        <option value="browser_loc_url">商品页</option>
+                                        <option value="browser_loc_url">我的订单页</option>
+                                        <option value="browser_loc_url">其他</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>设备类型</label>
+                                    <select id="select26" class="select2" multiple="设备类型" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="device">Windows</option>
+                                        <option value="device">Mac</option>
+                                        <option value="device">Linux</option>
+                                        <option value="device">Android</option>
+                                        <option value="device">IOS</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <label>浏览时段</label>
+                                    <select id="select27" class="select2" multiple="客单价" data-placeholder="Select a State" style="width: 100%;">
+                                        <option value="ReadedTime_Browser">1点-7点</option>
+                                        <option value="ReadedTime_Browser">8点-12点</option>
+                                        <option value="ReadedTime_Browser">13点-17点</option>
+                                        <option value="ReadedTime_Browser">18点-21点</option>
+                                        <option value="ReadedTime_Browser">22点-24点</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="标签" style="border-left-width: 200px;border-right-width: 200px;text-align:center">
+            </div>
+            <div class="form-group">
+                <button type="submit"  class="btn  btn-dark" style="width: 100%" onclick="submitClickFun()">提交</button>
+            </div>
+        </form>
+
+    </div>
+        <!-- 页尾 copyright -->
+        <footer class="main-footer">
+            <strong>J-TEAM22-UserProfile   </strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 3.1.0
+            </div>
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Add Content Here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Select2 -->
+<script src="../../plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="../../plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<!-- InputMask -->
+<script src="../../plugins/moment/moment.min.js"></script>
+<script src="../../plugins/inputmask/jquery.inputmask.min.js"></script>
+<!-- date-range-picker -->
+<script src="../../plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="../../plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="../../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="../../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<!-- BS-Stepper -->
+<script src="../../plugins/bs-stepper/js/bs-stepper.min.js"></script>
+<!-- dropzonejs -->
+<script src="../../plugins/dropzone/min/dropzone.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+<!-- Page specific script -->
+<script>
+    $(function () {
+        //Initialize Select2 Elements
+        $('.select2').select2()
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
+
+        //Datemask dd/mm/yyyy
+        $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+        //Datemask2 mm/dd/yyyy
+        $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+        //Money Euro
+        $('[data-mask]').inputmask()
+
+        //Date picker
+        $('#reservationdate').datetimepicker({
+            format: 'L'
+        });
+
+        //Date and time picker
+        $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
+
+        //Date range picker
+        $('#reservation').daterangepicker()
+        //Date range picker with time picker
+        $('#reservationtime').daterangepicker({
+            timePicker: true,
+            timePickerIncrement: 30,
+            locale: {
+                format: 'MM/DD/YYYY hh:mm A'
+            }
+        })
+        //Date range as a button
+        $('#daterange-btn').daterangepicker(
+            {
+                ranges   : {
+                    'Today'       : [moment(), moment()],
+                    'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                startDate: moment().subtract(29, 'days'),
+                endDate  : moment()
+            },
+            function (start, end) {
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+            }
+        )
+
+        //Timepicker
+        $('#timepicker').datetimepicker({
+            format: 'LT'
+        })
+
+        //Bootstrap Duallistbox
+        $('.duallistbox').bootstrapDualListbox()
+
+        //Colorpicker
+        $('.my-colorpicker1').colorpicker()
+        //color picker with addon
+        $('.my-colorpicker2').colorpicker()
+
+        $('.my-colorpicker2').on('colorpickerChange', function(event) {
+            $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+        })
+
+        $("input[data-bootstrap-switch]").each(function(){
+            $(this).bootstrapSwitch('state', $(this).prop('checked'));
+        })
+
+    })
+    // BS-Stepper Init
+    document.addEventListener('DOMContentLoaded', function () {
+        window.stepper = new Stepper(document.querySelector('.bs-stepper'))
+    })
+
+    // DropzoneJS Demo Code Start
+    Dropzone.autoDiscover = false
+
+    // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
+    var previewNode = document.querySelector("#template")
+    previewNode.id = ""
+    var previewTemplate = previewNode.parentNode.innerHTML
+    previewNode.parentNode.removeChild(previewNode)
+
+    var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
+        url: "/target-url", // Set the url
+        thumbnailWidth: 80,
+        thumbnailHeight: 80,
+        parallelUploads: 20,
+        previewTemplate: previewTemplate,
+        autoQueue: false, // Make sure the files aren't queued until manually added
+        previewsContainer: "#previews", // Define the container to display the previews
+        clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
+    })
+
+    myDropzone.on("addedfile", function(file) {
+        // Hookup the start button
+        file.previewElement.querySelector(".start").onclick = function() { myDropzone.enqueueFile(file) }
+    })
+
+    // Update the total progress bar
+    myDropzone.on("totaluploadprogress", function(progress) {
+        document.querySelector("#total-progress .progress-bar").style.width = progress + "%"
+    })
+
+    myDropzone.on("sending", function(file) {
+        // Show the total progress bar when upload starts
+        document.querySelector("#total-progress").style.opacity = "1"
+        // And disable the start button
+        file.previewElement.querySelector(".start").setAttribute("disabled", "disabled")
+    })
+
+    // Hide the total progress bar when nothing's uploading anymore
+    myDropzone.on("queuecomplete", function(progress) {
+        document.querySelector("#total-progress").style.opacity = "0"
+    })
+
+    // Setup the buttons for all transfers
+    // The "add files" button doesn't need to be setup because the config
+    // `clickable` has already been specified.
+    document.querySelector("#actions .start").onclick = function() {
+        myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED))
+    }
+    document.querySelector("#actions .cancel").onclick = function() {
+        myDropzone.removeAllFiles(true)
+    }
+    // DropzoneJS Demo Code End
+</script>
+
+<script>
+    function submitClickFun() {
+        //hahaha
+        let num = 28;
+        let selectID = new Array();
+        let y = new Array();
+
+        //初始化
+        for(let i = 0;i<num;i++){
+            selectID[i] = "select"+i.toString();
+            y[i] = "";
+        }
+
+        //添加搜索条件
+        for(let i=0;i<selectID.length;i++){
+            // var tag = $("#"+selectID[i]+" option:selected");
+            // var tag= $("#"+selectID[i]+" multiple").val()+",";
+            // alert(tag)
+            // alert(document.getElementById(selectID[i]).length);
+            // if($("#"+selectID[i]).val() != ""){
+
+            let mySelect=document.getElementById(selectID[i]);
+            let labels = mySelect.options;
+
+            let state = 0;
+
+            for(let j=0;j<labels.length;j++){
+                if(labels[j].selected){
+                    state = 1;
+                    // alert(labels[j].value+"="+labels[j].text);
+                    let label=labels[j].value;
+                    let value = labels[j].text;
+
+                    y[i] = y[i].concat(label,":",value,"/");
+                }
+            }
+            y[i] = y[i].substring(0,y[i].length-1);
+            if(state == 1)
+                y[i] = y[i].concat(",");
+        }
+
+        let c = "\"";
+
+        for(let i=0;i<num;i++){
+            c = c.concat(y[i]);
+        }
+        // alert(c);
+        if(c[c.length-1] == ",")
+            c = c.substring(0,c.length-1);
+        // alert(c);
+        c = c+"\"";
+        // alert(c);
+        document.write("");
+        window.location.href="combineSearch?criteria="+c;
+    }
+</script>
+
+</body>
+</html>

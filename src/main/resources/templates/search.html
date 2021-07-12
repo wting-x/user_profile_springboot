@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>标签查询</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="/plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- 页头 -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+
+
+
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- 侧边栏 -->
+  <aside class="main-sidebar sidebar-dark-lightblue elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">用户画像</span>
+    </a>
+
+    <!-- SidebarSearch Form -->
+    <div class="form-inline">
+      <div class="input-group" data-widget="sidebar-search">
+        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-sidebar">
+            <i class="fas fa-search fa-fw"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 侧边栏内容 -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+        <!--群体画像-->
+        <li class="nav-header"> </li>
+        <li class="nav-item menu-open">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-chart-pie"></i>
+            <p>
+              群体画像
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="home" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>人口属性</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="marketproperty" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>消费特征</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="behaviorproperty" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>咨询管理</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!--组合标签-->
+        <li class="nav-item">
+          <a href="combine" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>组合标签</p>
+          </a>
+        </li>
+        <!--用户画像-->
+        <li class="nav-item">
+          <a href="userprofile" class="nav-link">
+            <i class="nav-icon fas fa-copy"></i>
+            <p>用户画像</p>
+          </a>
+        </li>
+        <!--标签查询-->
+        <li class="nav-item">
+          <a href="search" class="nav-link active">
+            <i class="nav-icon fas fa-search"></i>
+            <p>标签查询 </p>
+          </a>
+        </li>
+        <li class="nav-header"> </li>
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">标签查询</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">SearchLabel</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">搜索五级标签</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="input-group input-group-sm" style="width: 100%;">
+
+                  <select class="select2" onchange="select()" id="selecttype" data-placeholder="选择四级标签" style="width: 20%;">
+                    <option value="gender">性别</option>
+                    <option value="ageRange">年龄段</option>
+                    <option value="jiguan">籍贯</option>
+                    <option value="politicalFace">政治面貌</option>
+                    <option value="job">职业</option>
+                    <option value="marriage">婚姻状况</option>
+                    <option value="constellation">星座</option>
+                    <option value="nationality">国籍</option>
+                    <option value="consumptionCycle">消费周期</option>
+                    <option value="ComsumptionAbility">消费能力</option>
+                    <option value="PerCustomerTransation">客单价</option>
+                    <option value="paymentCode">支付方式</option>
+                    <option value="MaxSingleComsumption">单笔最高</option>
+                    <option value="purchaseFrequency">购买频率</option>
+                    <option value="returnRate">退货率</option>
+                    <option value="replacementRate">换货率</option>
+                    <option value="discount">省钱能手</option>
+                    <option value="AdvisoryServiceFrequency">客服咨询频率</option>
+                    <option value="LatestLogin">最近登录</option>
+                    <option value="browser_loc_url">浏览页面</option>
+                    <option value="WatchTime">浏览时常</option>
+                    <option value="gender">访问频率</option>
+                    <option value="device">设备类型</option>
+                    <option value="ReadedTime_Browser">浏览时段</option>
+                    <option value="LoginFrequency">登录频率</option>
+                  </select>
+
+                  <input id="value" class="form-control float-right" placeholder="Search">
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-default" onclick="labelSearchFun()">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">搜索结果</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th style="width: 15px">ID</th>
+                    <th>性别</th>
+                    <th>年龄段</th>
+                    <th>国籍</th>
+                    <th>籍贯</th>
+                    <th>政治面貌</th>
+                    <th>星座</th>
+                    <th>职业</th>
+                    <th>婚姻状况</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr th:each="user:${users}">
+                    <td width="150px"><a th:text="${user[31]}" th:href="@{/rowkeySearch(rowkey=${user[31]})}"></a></td>
+                    <td width="150px"><a th:text="${user[0]}"></a></td>
+                    <td width="150px"><a th:text="${user[1]}"></a></td>
+                    <td width="150px"><a th:text="${user[2]}"></a></td>
+                    <td width="150px"><a th:text="${user[3]}"></a></td>
+                    <td width="150px"><a th:text="${user[4]}"></a></td>
+                    <td width="150px"><a th:text="${user[5]}"></a></td>
+                    <td width="150px"><a th:text="${user[6]}"></a></td>
+                    <td width="150px"><a th:text="${user[7]}"></a></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- 页尾 copyright -->
+  <footer class="main-footer">
+    <strong>J-TEAM22-UserProfile   </strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.1.0
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="plugins/jszip/jszip.min.js"></script>
+<script src="plugins/pdfmake/pdfmake.min.js"></script>
+<script src="plugins/pdfmake/vfs_fonts.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- Page specific script -->
+<script>
+  function labelSearchFun() {
+
+    var x=document.getElementById("value").value;
+    var myselect=document.getElementById("selecttype");
+    var index=myselect.selectedIndex;
+
+    // document.write(index);
+
+    var checkText=myselect.options[index].value;
+
+    var y = "\""+checkText+":"+x+"\"";
+
+    // document.write(y);
+
+    window.location.href="labelSearch?criteria="+y;
+
+    // var Sel=document.getElementById("selecttype");
+    //
+    //
+    // document.write("Hello World!"+x+Sel)
+    //
+    // var index=Sel.selectedIndex;
+    //
+    // if(index==0){
+    //   window.location.href="/userProfile/search?title="+x;
+    // }
+    // else{
+    //   window.location.href="/userProfile/search1?title="+x;
+    // }
+    //window.location.href="http://localhost:8080/search?id="+x;
+  }
+</script>
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+</body>
+</html>

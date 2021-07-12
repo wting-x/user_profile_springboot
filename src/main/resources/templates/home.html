@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>群体画像 | 人口属性</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="/plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- 页头 -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+
+
+
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- 侧边栏 -->
+  <aside class="main-sidebar sidebar-dark-lightblue elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">用户画像</span>
+    </a>
+
+    <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 侧边栏内容 -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <!--群体画像-->
+          <li class="nav-header"> </li>
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                群体画像
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="home" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>人口属性</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="marketproperty" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>消费特征</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="behaviorproperty" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>咨询管理</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!--组合标签-->
+          <li class="nav-item">
+            <a href="combine" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>组合标签</p>
+            </a>
+          </li>
+          <!--用户画像-->
+          <li class="nav-item">
+            <a href="userprofile" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>用户画像</p>
+            </a>
+          </li>
+          <!--标签查询-->
+          <li class="nav-item">
+            <a href="search" class="nav-link">
+              <i class="nav-icon fas fa-search"></i>
+              <p>标签查询 </p>
+            </a>
+          </li>
+          <li class="nav-header"> </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- 页面标题 -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">群体画像 | 人口属性</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">UserProperty</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- 主页内容 -->
+  <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <!-- 性别 -->
+            <div class="card card-lightblue card-outline">
+              <div class="card-header">
+                <h3 class="card-title">性别</h3>
+
+
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="genderChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- 年龄段 -->
+            <div class="card card-lightblue card-outline">
+              <div class="card-header">
+                <h3 class="card-title">年龄段</h3>
+
+              </div>
+              <div class="card-body">
+                <canvas id="ageChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+
+         </div>
+         <div class="col-md-4">
+            <!-- 政治面貌 -->
+            <div class="card card-lightblue card-outline">
+              <div class="card-header">
+                <h3 class="card-title">政治面貌</h3>
+
+              </div>
+              <div class="card-body">
+                <canvas id="policyChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- 职业 -->
+            <div class="card card-lightblue card-outline">
+              <div class="card-header">
+                <h3 class="card-title">职业</h3>
+
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="jobChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+
+
+          </div>
+          <!-- /.col (LEFT) -->
+          <div class="col-md-4">
+
+
+            <!-- 婚姻状况 -->
+            <div class="card card-lightblue card-outline">
+              <div class="card-header">
+                <h3 class="card-title">婚姻状况</h3>
+
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="marriageChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- 国籍 -->
+            <div class="card card-lightblue card-outline">
+              <div class="card-header">
+                <h3 class="card-title">国籍</h3>
+
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="nationalityChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+
+            </div>
+            <!-- /.card -->
+
+
+
+          </div>
+          <!-- /.col (RIGHT) -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+          <div class="col-md-4">
+            <!-- 星座 -->
+            <div class="card card-lightblue card-outline">
+              <div class="card-header">
+                <h3 class="card-title">星座</h3>
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="constellationChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+            <div class="col-md-8">
+                <!-- 籍贯 -->
+                <div class="card card-lightblue card-outline">
+                  <div class="card-header">
+                    <h3 class="card-title">籍贯</h3>
+                  </div>
+                  <div class="card-body">
+                    <canvas id="nationChart" style="min-height: 200px; height: 200px; max-height: 250px; max-width: 100%;"></canvas>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.card -->
+      </div><!-- /.container-fluid -->
+    </section>
+
+  </div>
+  <!-- 页尾 copyright -->
+  <footer class="main-footer">
+    <strong>J-TEAM22-UserProfile   </strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.1.0
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Add Content Here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="/plugins/chart.js/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+<!-- AdminLTE App -->
+<script src="/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/dist/js/demo.js"></script>
+<!-- Page specific script -->
+ <!-- 数据 -->
+<script>
+
+ var areaChartOptions = {
+   maintainAspectRatio : false,
+   responsive : true,
+   legend: {
+     display: false
+   },
+   scales: {
+     xAxes: [{
+       gridLines : {
+         display : false,
+       }
+     }],
+     yAxes: [{
+       ticks: {
+         min: 0,  //最小值
+       },
+       gridLines : {
+         display : false,
+       }
+     }]
+   }
+ }
+ var donutOptions     = {
+   maintainAspectRatio : false,
+   responsive : true,
+ }
+
+ function getData(url) {
+   var data = "";
+   $.ajax({
+     type: "POST",//POST方式提交
+     dataType: "json",//返回json类型
+     url: url,//请求url
+     async:false,//同步
+     success: function (result) {
+       data =  result;
+     },
+   });
+
+   return data;
+ }
+
+ //年龄段
+ var age_chart = document.getElementById('ageChart').getContext('2d')
+ var chart = new Chart(age_chart, {
+   // 要创建的图表类型
+   type: 'doughnut',
+
+   // 数据集
+  data: {
+  labels: ['50后','60后','70后','80后','90后','00后','10后','20后'],
+  datasets: [
+    {
+      data: getData("/personProperty/getAgeRange"),
+      backgroundColor : [ '#336699','#6699CC', '#3399CC','#006699',
+        '#99CCCC','#CCFFCC','#FFFFCC','#CCFFFF'],
+    }]
+  },
+   // 配置选项
+   options: {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      datasetFill             : false
+    }
+ })
+
+ //国籍
+ var nationality_chart = document.getElementById('nationalityChart').getContext('2d')
+ var chart = new Chart(nationality_chart, {
+   // 要创建的图表类型
+   type: 'doughnut',
+
+   // 数据集
+  data: {
+  labels: ['中国大陆','中国香港','中国澳门','中国台湾','其他'],
+  datasets: [
+    {
+      data: getData("/personProperty/getNationality"),
+      backgroundColor : [  '#336699','#6699CC', '#3399CC','#99CCCC',
+        '#CCFFCC'],
+    }]
+  },
+
+   // 配置选项
+   options: {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      datasetFill             : false
+    }
+ })
+
+ //职业
+ var job_chart = document.getElementById('jobChart').getContext('2d')
+ var chart = new Chart(job_chart, {
+   // 要创建的图表类型
+   type: 'bar',
+
+   // 数据集
+  data: {
+  labels: ['学生','公务员','军人','警察','教师','白领','其他'],
+  datasets: [
+    {
+      data: getData("/personProperty/getJob"),
+      backgroundColor : [ '#336699','#6699CC', '#3399CC','#006699',
+        '#99CCCC','#CCFFCC','#FFFFCC'],
+      fillColor:'#62a8ea',
+      label:'职业'
+    }]
+  },
+
+   // 配置选项
+   options: areaChartOptions
+ })
+
+ //籍贯
+ var nation_chart = document.getElementById('nationChart').getContext('2d')
+ var chart = new Chart(nation_chart, {
+   // 要创建的图表类型
+   type: 'pie',
+
+   // 数据集
+  data: {
+  labels: ['北京市','宁夏中卫','安徽合肥','江西抚州','重庆市','江苏苏州','江西南昌','河北保定',
+    '山东青岛','山东济南','甘肃兰州','甘肃白银','福建福州','福建三明','福建莆田','广东汕头','广东韶关',
+    '黑龙江黑河','黑龙江大兴安岭','黑龙江齐齐哈尔','黑龙江绥化','内蒙古鄂尔多斯','内蒙古呼和浩特','未知'],
+  datasets: [
+    {
+      data: getData("/personProperty/getjiguan"),
+      backgroundColor : [ '#336699','#6699CC', '#3399CC','#006699',
+        '#99CCCC','#CCFFCC','#FFFFCC','#CCFFFF',
+        '#336699','#6699CC', '#3399CC','#006699',
+        '#99CCCC','#CCFFCC','#FFFFCC','#CCFFFF',
+        '#336699','#6699CC', '#3399CC','#006699',
+        '#99CCCC','#CCFFCC','#FFFFCC',
+        '#CCCCCC'],
+    }]
+  },
+
+   // 配置选项
+   options: {
+     maintainAspectRatio : false,
+     responsive : true,
+   }
+ })
+
+
+ //星座
+ var constellation_chart = document.getElementById('constellationChart').getContext('2d')
+ var chart = new Chart(constellation_chart, {
+   // 要创建的图表类型
+   type: 'bar',
+
+   // 数据集
+  data: {
+  labels: ['白羊座','金牛座','双子座','巨蟹座','狮子座','处女座','天秤座','天蝎座','人马座','摩羯座','水瓶座','双鱼座'],
+  datasets: [
+    {
+      /*label:'星座',
+      data: getData("/personProperty/getConstellation"),
+      backgroundColor : [ '#3b8bba', '#3b8bba','#3b8bba','#3b8bba','#3b8bba','#3b8bba','#3b8bba','#3b8bba','#3b8bba','#3b8bba','#3b8bba','#3b8bba'],*/
+      backgroundColor : [ '#336699','#6699CC', '#3399CC','#006699',
+        '#99CCCC','#CCFFCC','#CCFFFF','#336699','#6699CC','#3399CC','#006699',
+        '#99CCCC'
+        ],
+      data: getData("/personProperty/getConstellation"),
+      fillColor:'#62a8ea',
+      label:'星座'
+    }]
+  },
+
+   // 配置选项
+   options: areaChartOptions
+ })
+
+
+ //政治面貌
+ var policy_chart = document.getElementById('policyChart').getContext('2d')
+ var chart = new Chart(policy_chart, {
+   // 要创建的图表类型
+   type: 'pie',
+
+   // 数据集
+  data: {
+  labels: ['群众','党员','无党派人士'],
+  datasets: [
+    {
+      data: getData("/personProperty/getPolicy"),
+      backgroundColor : [ '#00c0ef', '#0073b7','#3b8bba'],
+    }]
+  },
+
+   // 配置选项
+   options: {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+ })
+
+
+ //性别
+ var gender_chart = document.getElementById('genderChart').getContext('2d')
+ var chart = new Chart(gender_chart, {
+   // 要创建的图表类型
+   type: 'doughnut',
+
+   // 数据集
+  data: {
+  labels: ['男','女'],
+  datasets: [
+    {
+      data: getData("/personProperty/getGender"),
+      backgroundColor : [ '#00c0ef', '#3b8bba'],
+    }]
+  },
+
+   // 配置选项
+   options: {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+ })
+
+
+ //婚姻状况
+ var marriage_chart = document.getElementById('marriageChart').getContext('2d')
+ var chart = new Chart(marriage_chart, {
+   // 要创建的图表类型
+   type: 'doughnut',
+
+   // 数据集
+  data: {
+  labels: ['已婚','未婚','离异'],
+  datasets: [
+    {
+      data: getData("/personProperty/getMarriage"),
+      backgroundColor : [ '#00c0ef', '#0073b7','#3b8bba'],
+    }]
+  },
+
+   // 配置选项
+   options: donutOptions
+ })
+</script>
+</body>
+</html>
